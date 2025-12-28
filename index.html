@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigitalMarket | Grow Your Business</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{background:#f6f8ff;color:#222;}
+
+    /* NAVBAR */
+    header{
+      background:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 8%;
+      position:sticky;top:0;z-index:998;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    }
+    .logo{
+      color:#005bea;font-weight:800;font-size:24px;
+    }
+
+    /* Desktop nav */
+    nav a{
+      margin:0 18px;
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      transition:.3s;
+    }
+    nav a:hover{
+      color:#005bea;
+    }
+
+    /* Hamburger icon */
+    .menu-btn{
+      font-size:30px;
+      display:none;
+      cursor:pointer;
+      user-select:none;
+    }
+
+    /* Full navbar container for mobile */
+    nav{
+      transition:all .3s ease;
+    }
+
+    /* HERO */
+    .hero{
+      height:520px;
+      display:flex;align-items:center;
+      background:url('https://digiday.com/wp-content/uploads/sites/3/2016/10/Social-Media-banner.jpg') center/cover no-repeat;
+      color:white;padding:0 8%;
+      position:relative;
+    }
+    .hero::after{
+      content:'';position:absolute;inset:0;background:rgba(0,0,0,0.35);
+    }
+    .hero-content{
+      position:relative;z-index:2;max-width:530px;
+    }
+    .hero h1{font-size:45px;font-weight:700;line-height:1.3;}
+    .hero p{margin:18px 0 30px;font-size:17px;}
+    .btn{
+      display:inline-block;background:#005bea;
+      color:white;text-decoration:none;
+      padding:12px 28px;font-weight:600;
+      border-radius:28px;transition:.3s;
+    }
+    .btn:hover{background:#0046b6;}
+
+    /* TITLE */
+    .title{text-align:center;font-size:32px;font-weight:700;margin:70px 0 30px;}
+    .container{padding:0 8%;}
+
+    /* SERVICES */
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;margin-bottom:60px;
+    }
+    .card{
+      background:white;padding:28px;border-radius:14px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.09);
+      transition:.3s;
+    }
+    .card:hover{transform:translateY(-6px);}
+    .card h3{color:#005bea;font-size:20px;font-weight:600;margin-bottom:10px;}
+    .card p{font-size:15px;color:#555;line-height:1.5;}
+
+    /* ABOUT */
+    .about{
+      display:flex;gap:40px;align-items:center;margin:60px 0;
+    }
+    .about img{
+      width:50%;border-radius:14px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.09);
+    }
+    .about-text{max-width:500px;}
+    .about-text h2{font-size:32px;font-weight:700;margin-bottom:12px;}
+    .underline{width:60px;height:3px;background:#005bea;margin:8px 0 20px;}
+
+    /* CTA */
+    .cta{
+      margin-top:80px;text-align:center;color:white;
+      padding:70px 8%;
+      background:linear-gradient(90deg,#0d6efd,#005bea);
+      border-radius:16px;
+    }
+    .cta h2{font-size:32px;margin-bottom:10px;}
+    .cta p{font-size:18px;margin-bottom:18px;}
+
+    /* FOOTER */
+    footer{
+      margin-top:40px;padding:18px 0;
+      text-align:center;background:#111;
+      color:white;font-size:15px;
+    }
+
+    /* ===================== MOBILE MENU ===================== */
+    @media(max-width:900px){
+      /* hide nav by default */
+      nav{
+        position:absolute;
+        top:70px;right:0;
+        background:white;
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px 8%;
+        gap:15px;
+        box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        display:none;
+      }
+      nav.show{display:flex;}
+
+      nav a{
+        margin:5px 0;
+        font-size:18px;
+      }
+
+      .menu-btn{display:block;}
+
+      .about{flex-direction:column;}
+      .about img{width:100%;}
+
+      .hero h1{font-size:34px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header>
+  <h2 class="logo">Web Solutions</h2>
+
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <nav id="navLinks">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Boost Your Business With Smart Digital Marketing Solutions</h1>
+    <p>We help brands build strong online presence using SEO, Social Media, Paid Ads & more.</p>
+    <a href="#" class="btn">Get Free Consultation</a>
+  </div>
+</section>
+<!-- ========== SERVICES ========== -->
+<h2 class="title">Our Services</h2>
+<div class="container services">
+  <div class="card"><h3>SEO Optimization</h3><p>Rank higher on Google & get quality traffic that converts.</p></div>
+  <div class="card"><h3>Website Development</h3><p>Modern, fast & mobile-friendly websites for your business.</p></div>
+  <div class="card"><h3>Facebook & Google Ads</h3><p>Boost your sales with targeted ad campaigns.</p></div>
+  <div class="card"><h3>Social Media Management</h3><p>Grow your followers & build your brand’s reputation.</p></div>
+</div>
+
+<!-- ========== ABOUT ========== -->
+<div class="container about">
+  <img src="https://www.forbes.com/advisor/wp-content/uploads/2023/10/Digital-Marketing.jpg" alt="">
+  <div class="about-text">
+    <h2>About Our Agency</h2>
+    <div class="underline"></div>
+    <p>We are a digital-first agency helping startups, brands & local businesses grow online with smart marketing strategies.</p>
+    <br>
+    <a href="#" class="btn">Learn More</a>
+  </div>
+</div>
+
+<!-- ========== CTA ========== -->
+<div class="container">
+<section class="cta">
+  <h2>Ready to Grow Faster?</h2>
+  <p>Let's build a result-driven marketing plan for your business.</p>
+  <a href="#" class="btn" style="background:white;color:#005bea;">Contact Us Now</a>
+</section>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+<footer>
+  <div style="max-width:900px;margin:auto;padding:20px 0;color:white;text-align:center;line-height:1.8;">
+
+    <h3 style="color:#fff;font-weight:700;margin-bottom:8px;">DigitalMarket</h3>
+
+    <p><strong>📍 Address:</strong> Dehradun, Uttarakhand, India</p>
+    <p><strong>📞 Phone:</strong> +91 000000000</p>
+    <p><strong>📧 Email:</strong> support@digitalmarket.com</p>
+
+    <hr style="margin:18px auto;width:70%;border:0;border-top:1px solid #444;">
+
+    <p>© 2025 DigitalMarket — All Rights Reserved</p>
+  </div>
+</footer>
+
+
+<script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
+index.html
+Displaying index.html.

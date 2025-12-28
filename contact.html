@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | DigitalMarket</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{background:#f6f8ff;color:#222;}
+
+    /* NAVBAR */
+    header{
+      background:white;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:18px 8%;position:sticky;top:0;z-index:998;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    }
+    .logo{color:#005bea;font-weight:800;font-size:24px;}
+    nav a{margin:0 18px;text-decoration:none;color:#333;font-weight:500;}
+    nav a:hover{color:#005bea;}
+
+    /* CONTACT SECTION */
+    .title{text-align:center;font-size:34px;font-weight:700;margin:60px 0 20px;}
+    .underline{width:60px;height:3px;background:#005bea;margin:8px auto 35px;}
+
+    .container{
+      width:90%;max-width:650px;margin:auto;
+      background:white;padding:40px 35px;
+      border-radius:16px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom:60px;
+    }
+
+    .contact-form label{
+      font-size:16px;font-weight:600;
+      margin-bottom:8px;display:block;
+    }
+    .contact-form input,.contact-form textarea{
+      width:100%;padding:13px 15px;
+      margin-bottom:6px;
+      border:1px solid #d2d2d2;
+      border-radius:10px;font-size:15px;
+      outline:none;transition:.3s;
+    }
+
+    .contact-form small{
+      display:block;
+      color:red;
+      margin-bottom:12px;
+      font-size:14px;
+      height:16px; /* keeps spacing consistent */
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus{
+      border-color:#005bea;
+      box-shadow:0 0 0 3px rgba(0,91,234,0.18);
+    }
+
+    textarea{height:150px;resize:none;}
+
+    .btn{
+      background:#005bea;color:white;
+      padding:12px 28px;border-radius:28px;
+      text-decoration:none;font-weight:600;
+      display:block;width:100%;text-align:center;
+      cursor:pointer;border:none;font-size:16px;
+      transition:.3s;margin-top:10px;
+    }
+    .btn:hover{background:#0046b6;}
+
+    /* FOOTER */
+    footer{
+      margin-top:40px;padding:18px 0;
+      text-align:center;background:#111;
+      color:white;font-size:15px;
+    }
+
+    @media(max-width:900px){
+      nav{
+        position:absolute;top:70px;right:0;width:100%;
+        background:white;display:none;flex-direction:column;
+        padding:20px 8%;gap:15px;box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      }
+      nav.show{display:flex;}
+      nav a{margin:5px 0;font-size:18px;}
+      .menu-btn{display:block;font-size:30px;cursor:pointer;}
+    }
+    .menu-btn{display:none;}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2 class="logo">Web Solutions</h2>
+
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <nav id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<h2 class="title">Contact Us</h2>
+<div class="underline"></div>
+
+<div class="container">
+  <form class="contact-form" id="contactForm" onsubmit="return validateForm()">
+
+    <label>Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <small id="nameError"></small>
+
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter your email">
+    <small id="emailError"></small>
+
+    <label>Phone Number</label>
+    <input type="tel" id="phone" placeholder="Enter your phone number">
+    <small id="phoneError"></small>
+
+    <label>Message</label>
+    <textarea id="message" placeholder="Write your message..."></textarea>
+    <small id="messageError"></small>
+
+    <button class="btn" type="submit">Send Message</button>
+  </form>
+</div>
+
+<footer>
+  <div style="max-width:900px;margin:auto;padding:20px 0;color:white;text-align:center;line-height:1.8;">
+
+    <h3 style="color:#fff;font-weight:700;margin-bottom:8px;">DigitalMarket</h3>
+
+    <p><strong>📍 Address:</strong> Dehradun, Uttarakhand, India</p>
+    <p><strong>📞 Phone:</strong> +91 00000000</p>
+    <p><strong>📧 Email:</strong> support@digitalmarket.com</p>
+
+    <hr style="margin:18px auto;width:70%;border:0;border-top:1px solid #444;">
+
+    <p>© 2025 DigitalMarket — All Rights Reserved</p>
+  </div>
+</footer>
+
+
+<script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+// VALIDATION SCRIPT
+function validateForm() {
+  let valid = true;
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  document.getElementById("nameError").innerText = "";
+  document.getElementById("emailError").innerText = "";
+  document.getElementById("phoneError").innerText = "";
+  document.getElementById("messageError").innerText = "";
+
+  // Name
+  if (name === "") {
+    document.getElementById("nameError").innerText = "Name is required";
+    valid = false;
+  }
+
+  // Email validation
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email === "") {
+    document.getElementById("emailError").innerText = "Email is required";
+    valid = false;
+  } else if (!emailPattern.test(email)) {
+    document.getElementById("emailError").innerText = "Invalid email format";
+    valid = false;
+  }
+
+  // Phone validation (10 digits)
+  const phonePattern = /^[0-9]{10}$/;
+  if (phone === "") {
+    document.getElementById("phoneError").innerText = "Phone number is required";
+    valid = false;
+  } else if (!phonePattern.test(phone)) {
+    document.getElementById("phoneError").innerText = "Enter a valid 10-digit phone number";
+    valid = false;
+  }
+
+  // Message
+  if (message === "") {
+    document.getElementById("messageError").innerText = "Message is required";
+    valid = false;
+  }
+
+  return valid;
+}
+</script>
+
+</body>
+</html>
+contact.html
+Displaying contact.html.
